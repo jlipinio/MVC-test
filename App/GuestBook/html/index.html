@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Гостевая книга{% endblock %}
+
+{% block script %}
+<script>
+    function sendMessage() {
+
+        var ajax = $.ajax({
+            url: "index.php",
+            dataType: 'json',
+            type: "POST",
+            data: { name: $('#name').val(), text: $('#text').val() }
+        });
+
+        ajax = ajax.done(function( response ) {
+            renderMessage(response.model.id, $('#name').val(), $('#text').val());
+            $('#text').val('');
+        });
+
+        ajax = ajax.fail(function( jqXHR, textStatus ) {
+            $("#messages").prepend('<div class="alert alert-error">' +
+                                       '<button type="button" class="close" data-dismiss="alert">x</button>' +
+                                       '<h4>Ошибка!</h4>' + textStatus +
+                                   '</div>'
+                                   );
+             });
+    }
+
+    function renderMessage(id, name, text) {
+            $("#messages").prepend( "<blockquote id='" + id + "'>" +
+                                        "<p>" + text + "</p>" +
+                                        "<footer>Написал <b>" + name + "</b> только что!</footer>" +
+                                     "</blockquote>"
+                                    );
+
+            $("#alerts").prepend('<div class="alert alert-success">' +
+                                        '<button type="button" class="close" data-dismiss="alert">x</button>' +
+                                        '<h4>Успех!</h4> Сообщение успешно доставлено!' +
+                                    '</div>'
+                                    );
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+
+        <h1 class="text-center">Гостевая книга</h1>
+
+        <div class="well">
+            Имя: <input type="text" class="input-block-level" id="name" size="24" value="{{ model.user_name|default('guest') }}" placeholder="Name">
+            Сообщение: <input type="text" class="input-block-level" id="text" size="96" value="" placeholder="Text...">
+            <a class="btn btn-large btn-success" onClick="sendMessage()" href="#">Отправить</a>
+        </div>
+
+        <div id="alerts">
+        </div>
+
+        <hr>
+
+        <div id="messages">
+            {% block messages %}
+
+                {% for message in model.messages %}
+                    <blockquote id='{{ message.id }}'>
+                        <p>{{ message.text }}</p>
+                        <footer>Написал <b>{{ message.name }}</b> в {{ message.date }}</footer>
+                    </blockquote>
+                {% endfor %}
+
+            {% endblock %}
+        </div>
+{% endblock %}
