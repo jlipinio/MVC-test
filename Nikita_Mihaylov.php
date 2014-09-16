@@ -30,7 +30,7 @@ class Nikita_Mihaylov extends Programmer implements IUnemployedInLaw
     );
 
     public $doings = array(
-        'Свой велосипед MVC Framework - сделал для резюме, для демонстрирования начальные знания PHP, MVC и PHPUnit. Вдохновлялся Symfony, Kohana и Yii.',
+        'Свой велосипед MVC Framework https://github.com/jlipinio/MVC-test - сделал для резюме, для демонстрирования начальные знания PHP, MVC и PHPUnit. Вдохновлялся Symfony, Kohana и Yii.',
         'Делал всякие мелочи: Установка CMS-ок, копирование/правка дизайна, установка/редактирования плагинов, приложения для VK.',
         'Взламывал Пентагон. Ничего необычного, все так делали!? Но! Меня, меня взламывал... Хотя выяснить, сколько нас всего прилетело на землю.'
     );
