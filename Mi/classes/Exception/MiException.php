@@ -19,6 +19,7 @@ class MiException extends \Exception
     {
         try {
             $view = View::getInstance();
+            $code = ($e->getCode() == 0)? 200 : $e->getCode();
 
             $response = new Response( $view->render('error', array(
                 'error' => array(
@@ -26,7 +27,7 @@ class MiException extends \Exception
                     'message' => $e->getMessage(),
                     'details' => self::getText($e)
                 )
-            )), $e->getCode(), new DataHtml);
+            )), $code, new DataHtml);
 
             $response->send();
 

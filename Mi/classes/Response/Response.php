@@ -75,9 +75,11 @@ class Response extends DataObject implements IResponse
 
     function __construct($data, $code = 200, IDataType $data_type = null)
     {
-        $this->_header = array(
-            'HTTP/1.0' . $code . static::$messages[$code]
-        );
+        if(array_key_exists($code, static::$messages)) {
+            $this->_header = array(
+                'HTTP/1.0' . $code . static::$messages[$code]
+               );
+        }
 
         if($data_type === null)
             $data_type = new DataType;
