@@ -1,13 +1,23 @@
 <?php
-namespace Human;
+/**
+ * Warring: Есть немного маленьких шуток, что, к сожалению, в последствие вызовет меньше скуки, чем обычно.
+ */
+namespace AdultLife;
 
-use FavoritesOfGirl/FavoritesOfGod/Atheist/ParticularlyLazyPerson/Programmer;
-use Elit/Successful/Freelancer/Startuper as IUnemployedInLaw;
-
-class Nikita_Mihaylov extends Programmer implements IUnemployedInLaw
+class MyResume extends BanalResume implements IHopelessness
 {
 
     const IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT = 60;
+
+    public function name()
+    {
+        return 'Никита';
+    }
+
+    public function age()
+    {
+        return IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
+    }
 
     public $skill = array(
         'PHP' => 'beginner',
@@ -35,16 +45,6 @@ class Nikita_Mihaylov extends Programmer implements IUnemployedInLaw
         'Взламывал Пентагон. Ничего необычного, все так делали!? Но! Меня, меня взламывал... Хотя выяснить, сколько нас всего прилетело на землю.'
     );
 
-    public function name()
-    {
-        return 'Никита';
-    }
-
-    public function age()
-    {
-        return IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
-    }
-
     public function goals_of_work()
     {
         $skill = $this->skill;
@@ -59,28 +59,5 @@ class Nikita_Mihaylov extends Programmer implements IUnemployedInLaw
 
         return $skill;
     }
-
-    public function query($words)
-    {
-        //smart detected hacking
-        $pattern = '#(ну, я же девушка|всем лежать это ограбление|НЕ ПРИСЛОНЯТЬСЯ|ОТКРЫТЬ СДЕСЬ)#i';
-        if(preg_match($pattern, $words, $matches))
-            return false;
-
-        return parent::query($words);
-    }
-
-    public function professional_advice($code)
-    {
-        if(!$this->execute($code))
-            return 'В этом коде есть ошибка, но не исправляй её, она только этого, от тебя, и ждет.' .
-                   'Крепись. Собери все свою волю в кулак и иди кодить дальше.' .
-                   'Не переживай, на твоем пути еще будет масса ошибок, и гораздо лучше чем эта.';
-
-        return 'Выглядит как идеальный код. А теперь покажи, куда ты спрятал ошибку!?';
-    }
-
-
-
 
 } 
