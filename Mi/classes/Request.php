@@ -54,10 +54,13 @@ class Request extends DataObject
             }
 
             $url = str_replace($search, $replace, $url);
+
+            if($params['vars'] === null)
+                $url = str_replace('\?<vars>', '', $url);
+
+            $url = preg_replace('#\<.*?\>#', '', $url);
             $url = str_replace(array('\\', '(/)', '(', ')'), '', $url);
 
-            if($params['vars'] === '')
-                $url = str_replace('?', '', $url);
 
         }
 

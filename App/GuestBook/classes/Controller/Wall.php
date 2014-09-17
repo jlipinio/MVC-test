@@ -22,7 +22,9 @@ class Wall extends Controller
         $model = new MessageModel($this->_config);
 
         if(!$this->_request->isAjax()) {
-            $model->loadMessage();
+
+            if(!$model->loadMessage())
+                $this->redirect_install();
 
             return $this->render('index', array(
                 'model' => $model->data()
@@ -55,11 +57,10 @@ class Wall extends Controller
             throw new ControllerException($model->message, null, $model->code);
     }
 
-    protected function action_home()
+    protected function redirect_install()
     {
         $this->redirect(array(
-            'action' => 'index',
-            'vars' => ''
+            'action' => 'install'
         ));
     }
 

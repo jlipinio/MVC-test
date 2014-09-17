@@ -3,9 +3,9 @@ namespace Mi;
 
 include_once "init.php";
 
-Route::push('HelloWorld', 'helloworld/(<action>.<format>)',
+Route::push('HelloWorld', 'helloworld/(<action>(<format>))',
     Array(
-        'format' => '(php|html)',
+        'format' => '(.php|.html)',
     ))
     ->defaults(array(
         'controller' => 'text',
@@ -13,13 +13,12 @@ Route::push('HelloWorld', 'helloworld/(<action>.<format>)',
         'config' => 'config.php'
     ));
 
-Route::push('GuestBook', 'guestbook/(<id>/)(<action>.<format>)',
+Route::push('GuestBook', 'guestbook/(<action>(<format>))',
     Array(
         'id' => '\d+',
-        'format' => '(php|html)',
+        'format' => '(.php|.html)',
     ))
     ->defaults(array(
-        'id' => 1,
         'controller' => 'wall',
         'action' => 'index',
         'config' => 'config.php'

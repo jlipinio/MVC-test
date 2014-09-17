@@ -9,6 +9,7 @@ use Mi\Model;
 use App\GuestBook\Model\Entity\Message;
 
 use Doctrine\ORM\Query\QueryException;
+use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\ORM\EntityManager;
 
 use Doctrine\ORM\Tools\Setup;
@@ -75,7 +76,9 @@ class MessageModel extends Model
 
         try{
             $messages = $query->getResult();
-        } catch (QueryException $e) {
+        } catch (TableNotFoundException $e) {
+            return false;
+        } catch (\Exception $e) {
             MiException::sendHandler($e);
         }
 
