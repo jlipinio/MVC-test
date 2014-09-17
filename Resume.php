@@ -40,12 +40,18 @@ class MyResume extends BanalResume implements IHopelessness
     );
 
     public $doings = array(
-        'Свой велосипед MVC Framework https://github.com/jlipinio/MVC-test - сделал для резюме, для демонстрирования начальные знания PHP, MVC и PHPUnit. Вдохновлялся Symfony, Kohana и Yii.',
-        'Делал всякие мелочи: Установка CMS-ок, копирование/правка дизайна, установка/редактирования плагинов, приложения для VK.',
-        'Взламывал Пентагон. Ничего необычного, все так делали!? Но! Меня, меня взламывал... Хотя выяснить, сколько нас всего прилетело на землю.'
+        'https://github.com/jlipinio/MVC-test' => 'Свой велосипед MVC Framework  - сделал для резюме, для демонстрирования начальные знания PHP, MVC и PHPUnit. Вдохновлялся Symfony, Kohana и Yii.',
+        'Разное' => array(
+            'Делал всякие мелочи: Установка CMS-ок, копирование/правка дизайна, установка/редактирования плагинов, приложения для VK.',
+            'Взламывал Пентагон. Ничего необычного, все так делали!? Но! Меня, меня взламывал... Хотя выяснить, сколько нас всего прилетело на землю.'
+        )
     );
 
-    public function goals_of_work()
+    public $test = array(
+        'http://www.quizful.net/user/jlipinio' => 'Хорошие тесты, нехорошие результаты :)'
+    );
+
+    private function goals_of_work()
     {
         $skill = $this->skill;
         foreach($skill as $key => $value) {
