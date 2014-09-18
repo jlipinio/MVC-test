@@ -1,7 +1,7 @@
 MVC-test
 ========
 
-Свой велосипед MVC Framework - сделал для резюме, для демонстрирования начальных знаний PHP, MVC и PHPUnit. Вдохновлялся Symfony, Kohana и Yii.
+Свой велосипед MVC Framework - сделал для резюме, для доказательства начальных знаний PHP, MVC и PHPUnit, не словами, а делом. Вдохновлялся Symfony, Kohana и Yii.
 
 Работает по схеме: http://habrastorage.org/files/0c0/9e6/d38/0c09e6d382eb4ae7895d8d60048857b4.png
 
