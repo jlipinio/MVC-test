@@ -16,7 +16,7 @@ class MyResume extends BanalResume implements IHopelessness
 
     public function age()
     {
-        return IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
+        return self::IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
     }
 
     public $skills = array(
@@ -57,7 +57,7 @@ class MyResume extends BanalResume implements IHopelessness
             if(is_array($value))
                 $value = $this->goals_of_work($value);
             else
-                $value = 'hacker';
+                $value = 'expert';
 
             $skills[$key] = $value;
         }
