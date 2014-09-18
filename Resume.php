@@ -19,7 +19,7 @@ class MyResume extends BanalResume implements IHopelessness
         return IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
     }
 
-    public $skill = array(
+    public $skills = array(
         'PHP' => 'beginner',
         'PHPUnit' => 'beginner',
 
@@ -51,19 +51,18 @@ class MyResume extends BanalResume implements IHopelessness
         'http://www.quizful.net/user/jlipinio' => 'Хорошие тесты, нехорошие результаты :)'
     );
 
-    private function goals_of_work()
+    private function goals_of_work($skills)
     {
-        $skill = $this->skill;
-        foreach($skill as $key => $value) {
+        foreach($skills as $key => $value) {
             if(is_array($value))
-                $value = $this->goels($value);
+                $value = $this->goals_of_work($value);
             else
                 $value = 'hacker';
 
-            $skill[$key] = $value;
+            $skills[$key] = $value;
         }
 
-        return $skill;
+        return $skills;
     }
 
 } 
