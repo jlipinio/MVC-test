@@ -19,6 +19,11 @@ class MyResume extends BanalResume implements IHopelessness
         return self::IM_TIRED_OF_ALL_THIS_SHIT_AND_ME_LEFT_2_DAYS_UNTIL_RETIREMENT - 35;
     }
 
+    public function sex()
+    {
+        return \Human\Best\Programmer::DEFAULT_SEX;
+    }
+
     public $skills = array(
         'PHP' => 'beginner',
         'PHPUnit' => 'beginner',
